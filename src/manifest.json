@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "UC Davis Emoji Keyboard",
+    "description": "The most convinent way to access all your Davis-themed emojis 🐮",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "identity"
+    ],
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_popup": "index.html"
+    },
+    "icons": {
+        "48": "icon2.png",
+       "128": "icon.png" },
+    "content_scripts": [
+        {
+          "matches": [ "https://*/*" ],
+          "js": [ "content.js" ]
+        }
+    ],
+    "background": {
+        "scripts": [
+            "background-es2015.js",
+            "runtime-es2015.js"
+        ]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "web_accessible_resources": [
+        "assets/css/*",
+        "assets/js/*",
+        "assets/fonts/*"
+    ]
+}

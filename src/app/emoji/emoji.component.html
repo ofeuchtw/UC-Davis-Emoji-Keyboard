@@ -1,0 +1,82 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="emoji.component.css">
+</head>
+<body>
+<div>
+    <div id="searchbar">
+        <input autocomplete="off" type="text" id="searchTextbox" placeholder="Search Emoji"><br> 
+        <button id="searchButton" (click)="searchEmoji()"><i class="fa fa-search"></i></button>
+        <button id="searchedEmoji" (click)="copyEmoji('searchedEmoji')"></button>
+    </div>
+</div>
+
+<div class="tab">
+    <div class="scroller">
+        <button class="tablinks active" (click)="openTab('All')">All</button>
+        <button class="tablinks" (click)="openTab('Go Ags')">Go Ags</button>
+        <button class="tablinks" (click)="openTab('FarMar')">FarMar</button>
+        <button class="tablinks" (click)="openTab('Midterm Szn')">Midterm Szn</button>
+        <button class="tablinks" (click)="openTab('Davis Disasters')">Davis Disasters</button>
+        <button class="tablinks" (click)="openTab('Picnic Day')">Picnic Day</button>
+    </div>
+</div>
+
+<div id="All" class="tabcontent" style="display:block">
+    <div class="wrapper">
+        <div id= "emojiBox"*ngFor= "let emoji of emojis">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+        </div>
+    </div>
+</div>
+
+<div id="FarMar" class="tabcontent">
+    <div class = "wrapper">
+        <ng-container *ngFor= "let emoji of emojis">
+            <div *ngIf = "emoji.category == 'FarMar'">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div id="Midterm Szn" class="tabcontent">
+    <div class = "wrapper">
+        <ng-container *ngFor= "let emoji of emojis">
+            <div *ngIf = "emoji.category == 'Midterm Szn'">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div id="Go Ags" class="tabcontent">
+    <div class = "wrapper">
+        <ng-container *ngFor= "let emoji of emojis">
+            <div *ngIf = "emoji.category == 'Go Ags'">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div id="Picnic Day" class="tabcontent">
+    <div class = "wrapper">
+        <ng-container *ngFor= "let emoji of emojis">
+            <div *ngIf = "emoji.category == 'Picnic Day'">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div id="Davis Disasters" class="tabcontent">
+    <div class = "wrapper">
+        <ng-container *ngFor= "let emoji of emojis">
+            <div *ngIf = "emoji.category == 'DD'">
+                <button [title]="emoji.name" [id]="emoji.name" class="emoji" (click)="copyEmoji(emoji.name)">{{ emoji.icon }}</button>
+            </div>
+        </ng-container>
+    </div>
+</div>
+</body>
